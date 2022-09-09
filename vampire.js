@@ -21,7 +21,19 @@ class Vampire {
 
   // Returns the number of vampires away from the original vampire this vampire is
   get numberOfVampiresFromOriginal() {
-    
+    // we can use iterations to keep track of counter
+    let numOfVamps = 0;
+    let currentVamp = this;
+    // keep iterating, while the current vamp has a creator
+    // the code below is checking truthiness of creator object in the currentVamp;
+    while (currentVamp.creator) {
+      // change the current vamp to the creator vamp
+      currentVamp = currentVamp.creator;
+      // increment the counter by 1
+      numOfVamps ++;
+    }
+
+    return numOfVamps;
   }
 
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
