@@ -50,6 +50,15 @@ class Vampire {
   // * when comparing Ansel and Sarah, Ansel is the closest common anscestor.
   // * when comparing Ansel and Andrew, Ansel is the closest common anscestor.
   closestCommonAncestor(vampire) {
+    let currentVamp = this;
+    let theirParent = vampire.creator;
+    // should be root if root is one of the comparison
+    if (!currentVamp.creator) return currentVamp;
+    // or same vampires being compared, should be that vampire
+    if (!theirParent || currentVamp === vampire) return vampire;
+    // should be root with first generation
+    if (!theirParent.creator) return theirParent;
+
 
   }
 }
